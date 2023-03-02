@@ -1,4 +1,3 @@
-import { mode } from "@chakra-ui/theme-tools";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { createTestMachine, createTestModel } from "@xstate/test";
 

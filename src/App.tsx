@@ -15,26 +15,22 @@ function App() {
   const [state, send, service] = useMachine(musicPlayerMachine);
 
   useEffect(() => {
-    const subscription = service.subscribe((state) => {
-      // console.log(state);
-    });
+    if (process.env.NODE_ENV !== "production") {
+      const subscription = service.subscribe((state) => {
+        console.log(state);
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  });
+        return () => {
+          subscription.unsubscribe();
+        };
+      });
+    }
+  }, [service]);
 
-  const handlePlaySong = () => {
-    send({ type: "PLAY" });
-  };
+  const handlePlaySong = () => send({ type: "PLAY" });
 
-  const handlePauseSong = () => {
-    send({ type: "PAUSE" });
-  };
+  const handlePauseSong = () => send({ type: "PAUSE" });
 
-  const handleStopSong = () => {
-    send({ type: "STOP" });
-  };
+  const handleStopSong = () => send({ type: "STOP" });
 
   return (
     <Container centerContent maxW="2xl" minH="100vh" justifyContent="center">

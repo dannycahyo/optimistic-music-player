@@ -1,4 +1,4 @@
-import { HStack, IconButton, Heading, Center } from "@chakra-ui/react";
+import { HStack, IconButton, Heading } from "@chakra-ui/react";
 
 import { BsFillPlayCircleFill, BsStopCircleFill } from "react-icons/bs";
 
